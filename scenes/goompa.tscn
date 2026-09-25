@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dfty675g2bllw"]
+
+[ext_resource type="Texture2D" uid="uid://d04c56mii0y4t" path="res://assets/enemies.png" id="1_urykn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxe6o"]
+atlas = ExtResource("1_urykn")
+region = Rect2(0, 4, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55xbg"]
+atlas = ExtResource("1_urykn")
+region = Rect2(30, 4, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ylawy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxe6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55xbg")
+}],
+"loop": 1,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[node name="Goompa" type="CharacterBody2D" unique_id=968485271]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=840627404]
+sprite_frames = SubResource("SpriteFrames_ylawy")
+animation = &"walking"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1708448168]
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=361167491]

@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://dhvvsjjlddyll"]
+
+[ext_resource type="Script" uid="uid://d16i0ymx53hap" path="res://scripts/player.gd" id="1_bvgp0"]
+[ext_resource type="Texture2D" uid="uid://dtk18skud2tfw" path="res://assets/SNES - Super Mario All-Stars_ Super Mario Bros. & The Lost Levels - Playable Characters - Mario and Luigi.png" id="1_keuod"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gbmu"]
+size = Vector2(8, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_keuod"]
+atlas = ExtResource("1_keuod")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvgp0"]
+atlas = ExtResource("1_keuod")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gbmu"]
+atlas = ExtResource("1_keuod")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnd63"]
+atlas = ExtResource("1_keuod")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgcl4"]
+atlas = ExtResource("1_keuod")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjj4f"]
+atlas = ExtResource("1_keuod")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ylawy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_keuod")
+}],
+"loop": 1,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvgp0")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gbmu")
+}],
+"loop": 1,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnd63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgcl4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjj4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgcl4")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 10.0
+}]
+
+[node name="Mario" type="CharacterBody2D" unique_id=202837636]
+script = ExtResource("1_bvgp0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=363056536]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_5gbmu")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1929692272]
+scale = Vector2(2, 1)
+target_position = Vector2(0, 14)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1143410278]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ylawy")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.71371245
